@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Michael Rubanov",
+      "authorEmail": "xmonad-jumpbox@trackingdesk.com",
+      "authorUrl": ""
+    }
+  }
+}
