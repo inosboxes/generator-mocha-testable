@@ -5,5 +5,11 @@
       "authorEmail": "xmonad-jumpbox@trackingdesk.com",
       "authorUrl": ""
     }
+  },
+  "generator-mocha-testable-class": {
+    "promptValues": {
+      "srcDir": "src",
+      "testDir": "test"
+    }
   }
 }

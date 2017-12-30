@@ -1,0 +1,9 @@
+import { expect } from 'chai'
+
+import <%= Name %> from '../src/<%= Name %>'
+
+describe('"<%= Name %>" module exports', () => {
+  it('should an instance of "Object".', () => {
+    expect(<%= Name %>).to.be.instanceOf(Object)
+  })
+})

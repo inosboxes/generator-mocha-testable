@@ -11,6 +11,6 @@ describe('generator-mocha-testable-class:app', () => {
   });
 
   it('creates files', () => {
-    assert.file(['dummyfile.txt']);
+    assert.file(['dummyfile.txt', 'src/Core.js', 'test/Core.spec.js']);
   });
 });
