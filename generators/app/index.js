@@ -6,7 +6,7 @@ const yosay = require('yosay');
 module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
-    yosay('Welcome to ' + chalk.red('generator-mocha-testable-class') + ' generator!');
+    yosay('Welcome to ' + chalk.red('generator-mocha-testable-module') + ' generator!');
 
     const prompts = [
       {
@@ -22,6 +22,13 @@ module.exports = class extends Generator {
         message: 'Please define tests directory.',
         store: true,
         default: 'test'
+      },
+      {
+        type: 'list',
+        name: 'style',
+        message: 'Choose style.',
+        choices: [{ value: 1, name: 'ES' }, { value: 2, name: 'Non ES' }],
+        default: 1
       },
       {
         type: 'input',
@@ -46,14 +53,31 @@ module.exports = class extends Generator {
 
     this.fs.copy(this.templatePath(dfile), this.destinationPath(dfile));
 
+    let moduleTemplateName;
+    let moduleTestTemplateName;
+
+    switch (this.props.style) {
+      case 1:
+        moduleTemplateName = 'esclass.ejs';
+        moduleTestTemplateName = 'estest.ejs';
+        break;
+      case 2:
+        moduleTemplateName = 'non-es-module.ejs';
+        moduleTestTemplateName = 'non-es-module-test.ejs';
+        break;
+      default:
+        moduleTemplateName = 'esclass.ejs';
+        moduleTestTemplateName = 'estest.ejs';
+    }
+
     this.fs.copyTpl(
-      this.templatePath('esclass.ejs'),
+      this.templatePath(moduleTemplateName),
       this.destinationPath(srcDir + '/' + name + '.js'),
       metaData
     );
 
     this.fs.copyTpl(
-      this.templatePath('estest.ejs'),
+      this.templatePath(moduleTestTemplateName),
       this.destinationPath(testDir + '/' + name + '.spec.js'),
       metaData
     );
