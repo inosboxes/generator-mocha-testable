@@ -1,0 +1,10 @@
+let chai = require('chai');
+let expect = chai.expect;
+
+let <%= Name %> = require('../src/<%= Name %>')
+
+describe('"<%= Name %>" module exports', function(){
+  it('should an instance of "Object".', function() {
+    expect(<%= Name %>).to.be.instanceOf(Function)
+  })
+})
