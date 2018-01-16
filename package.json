@@ -1,5 +1,5 @@
 {
-  "name": "generator-mocha-testable-class",
+  "name": "generator-mocha-testable",
   "version": "0.0.2",
   "description":
     "Generates module with es class template and corresponding mocha test module.",
